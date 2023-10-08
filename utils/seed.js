@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-const { users, thought} = require('./data');
+const { users,} = require('./data');
 
 connection.on('error', (err) => err);
 
@@ -18,7 +18,6 @@ connection.once('open', async () => {
     }
     
   await User.insertMany(users);
-  await Thought.insertMany(thought);
 
   console.info('Seeding complete! 🌱');
   process.exit(0);
