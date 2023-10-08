@@ -6,14 +6,20 @@ const users = [
   {
     username: 'username2',
     email: 'test2@gmail.com',
+    // friends: [],
+    // thoughts: []
   },
   {
     username: 'username3',
     email: 'test3@gmail.com',
+    // friends: [],
+    // thoughts: []
   },
   {
     username: 'username4',
     email: 'test4@gmail.com',
+    // friends: [],
+    // thoughts: []
   }
 ];
 
