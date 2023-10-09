@@ -7,14 +7,12 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      max_length: 50,
-      trimmed: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      max_length: 50,
       validate: {
         validator: function (value) {
           return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(value);
@@ -35,7 +33,6 @@ const userSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
       virtuals: true,
     },
    id: false,
@@ -46,6 +43,6 @@ userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
-const User = model('User', userSchema);
+const User = model('user', userSchema);
 
 module.exports = User;

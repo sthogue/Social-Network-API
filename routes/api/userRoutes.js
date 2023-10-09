@@ -1,3 +1,4 @@
+// Purpose: API routes for User model
 const router = require('express').Router();
 const {
     getUsers,
@@ -10,18 +11,19 @@ const {
 } = require('../../controllers/user-controller.js');
 
 // /api/user
-router.route('/').get(getUsers).post(createUser);
+router.route('/')
+    .get(getUsers)
+    .post(createUser);
 
-// /api/users/:userID
-router
-    .route('/:userID')
+// /api/users/:userId
+router.route('/:userId')
     .get(getUserById)
     .put(updateUser)
     .delete(deleteUser);
 
-// /api/users/:userID/friends/:friendID
-router
-    .route('/:userID/friends/:friendID')
+// /api/users/:userID/friends/:friendId
+router.route('/:userID/friends/:friendId')
     .post(addFriend)
     .delete(deleteFriend);
+    
 module.exports = router;
