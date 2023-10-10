@@ -26,12 +26,13 @@ module.exports = {
         try{
             console.log('You are adding a thought');
             console.log(req.body);
+            const thought = await Thought.create(req.body);
             const user = await User.findOneAndUpdate(
                 { _id: req.body.userId },
-                { $addToSet: { thoughts: req._id } },
+                { $addToSet: { thoughts: thought._id } },
                 { new: true }
             );
-
+                console.log(user);
             if (!user) {
                 return res
                 .status(404)
@@ -69,7 +70,7 @@ module.exports = {
             }
 
             const user = await User.findOneAndUpdate(
-                { thoughts: req.params.thoughtId },
+                { thoughts: thought._id },
                 { $pull: { thoughts: req.params.thoughtId } },
                 { new: true }
             );
@@ -116,8 +117,8 @@ module.exports = {
                     .status(404)
                     .json({ message: 'No Thought found with that ID :(' })
             }
-
-            res.json(student);
+            console.log(thought);
+            res.json(thought);
         } catch (err) {
             res.status(500).json(err);
         }

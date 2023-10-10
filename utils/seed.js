@@ -32,10 +32,15 @@ connection.once('open', async () => {
 
   await User.deleteMany({});
   await Thought.deleteMany({});
+
   await User.collection.insertMany(users);
   await Thought.collection.insertMany(thoughts);
   await Thought.collection.insertMany(reactions);
 
+  console.table(users);
+  console.table(thoughts);
+  console.table(reactions);
+  
   console.log('User data seeded!');
   console.log('Seeding complete!');
   process.exit(0);

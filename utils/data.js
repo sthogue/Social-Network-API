@@ -2,18 +2,26 @@ const users = [
   {
     username: 'username1',
     email: 'test@gmail.com',
+    thoughts:[],
+    friends: []
   },
   {
     username: 'username2',
     email: 'test2@gmail.com',
+    thoughts:[],
+    friends: []
   },
   {
     username: 'username3',
     email: 'test3@gmail.com',
+    thoughts:[],
+    friends: []
   },
   {
     username: 'username4',
     email: 'test4@gmail.com',
+    thoughts:[],
+    friends: []
   }
 ];
 
