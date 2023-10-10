@@ -20,16 +20,18 @@ const userSchema = new Schema(
         message: 'Invalid email address format',
       },
     },
-    thoughts:
+    thoughts: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Thought',
       },
-    friends:
+    ],
+    friends: [
       {
         type: Schema.Types.ObjectId,
         ref: 'User',
       },
+    ],
   },
   {
     toJSON: {
@@ -38,6 +40,7 @@ const userSchema = new Schema(
    id: false,
   }
 );
+
 
 userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
